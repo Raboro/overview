@@ -9,6 +9,14 @@ public class VoucherDTO {
     Date expiratonDate;
     boolean redeemed;
 
+    public VoucherDTO(long id, String name, float value, Date expiratonDate, boolean redeemed) {
+        this.id = id;
+        this.name = name;
+        this.value = value;
+        this.expiratonDate = expiratonDate;
+        this.redeemed = redeemed;
+    }
+
     public long getId() {
         return id;
     }
