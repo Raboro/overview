@@ -15,13 +15,13 @@ import java.util.Date;
 public class VoucherController {
 
     @GetMapping
-    public VoucherDTO[] getAll() {
-        return new VoucherDTO[0];
+    public ResponseEntity<VoucherDTO[]> getAll() {
+        return ResponseEntity.ok(new VoucherDTO[0]);
     }
 
     @PostMapping
-    public long create(@RequestBody VoucherCreationDTO voucher) {
-        return 0;
+    public ResponseEntity<Long> create(@RequestBody VoucherCreationDTO voucher) {
+        return ResponseEntity.accepted().body(0L);
     }
 
     @GetMapping("{voucherId}")
