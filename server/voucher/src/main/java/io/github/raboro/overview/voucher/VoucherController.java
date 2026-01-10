@@ -1,6 +1,7 @@
 package io.github.raboro.overview.voucher;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,5 +28,10 @@ public class VoucherController {
     @GetMapping("{voucherId}")
     public ResponseEntity<VoucherDTO> getById(@PathVariable("voucherId") long id) {
         return ResponseEntity.ok(new VoucherDTO(id, "test", 10.0F, new Date(), false));
+    }
+
+    @DeleteMapping("{voucherId}")
+    public ResponseEntity<Void> deleteById(@PathVariable("voucherId") long id) {
+        return ResponseEntity.noContent().build();
     }
 }
