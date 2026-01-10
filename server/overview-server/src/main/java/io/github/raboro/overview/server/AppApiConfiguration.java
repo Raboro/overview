@@ -17,19 +17,16 @@ public class AppApiConfiguration implements WebMvcConfigurer {
     @Value("${ov.api.base-url}")
     private String baseUrl;
 
-
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
         LOG.info("Using {} as base URL", baseUrl);
-        final OverviewApp[] apps = {
-                new OverviewApp("voucher")
-        };
-        for (var app : apps) {
-            final var appUrl = baseUrl + app.name();
-            LOG.info("Register app: {} under URL: {}", app.name(), appUrl);
+        final String[] appNames = {"voucher"};
+        for (var appName : appNames) {
+            final var appUrl = baseUrl + appName;
+            LOG.info("Register appName: {} under URL: {}", appName, appUrl);
             configurer.addPathPrefix(
                     appUrl,
-                    HandlerTypePredicate.forBasePackage(BASE_PACKAGE + app.name())
+                    HandlerTypePredicate.forBasePackage(BASE_PACKAGE + appName)
             );
         }
     }
