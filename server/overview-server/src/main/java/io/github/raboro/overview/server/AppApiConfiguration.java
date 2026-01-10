@@ -24,7 +24,7 @@ public class AppApiConfiguration implements WebMvcConfigurer {
         LOG.info("Using {} as base URL", baseUrl);
         final String[] appNames = {"voucher"};
         for (var appName : appNames) {
-            final var appUrl = baseUrl + appName;
+            final var appUrl = baseUrl + appName + "-app";
             LOG.info("Register appName: {} under URL: {}", appName, appUrl);
             configurer.addPathPrefix(
                     appUrl,
