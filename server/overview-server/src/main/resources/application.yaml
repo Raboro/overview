@@ -2,5 +2,10 @@ spring:
   output:
     ansi:
       enabled: detect
+
   application:
     name: overview
+
+  jpa:
+    hibernate:
+      ddl-auto: validate

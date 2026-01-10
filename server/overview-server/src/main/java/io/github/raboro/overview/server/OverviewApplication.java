@@ -1,13 +1,11 @@
-package io.github.raboro.overview;
+package io.github.raboro.overview.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class OverviewApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(OverviewApplication.class, args);
-	}
-
+    static void main(String[] args) {
+        SpringApplication.run(OverviewApplication.class, args);
+    }
 }
