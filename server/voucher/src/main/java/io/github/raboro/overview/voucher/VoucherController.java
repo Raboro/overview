@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("test")
-public class TestResource {
+@RequestMapping("voucher")
+public class VoucherController {
 
     @GetMapping
-    public String testi() {
-        return "test";
+    public VoucherDTO[] getAll() {
+        return new VoucherDTO[0];
     }
 }
