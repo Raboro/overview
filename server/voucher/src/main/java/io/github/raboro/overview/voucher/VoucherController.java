@@ -41,20 +41,14 @@ public class VoucherController {
 
     @DeleteMapping("{voucherId}")
     public ResponseEntity<Void> deleteById(@PathVariable("voucherId") long id) {
+        voucherService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("{voucherId}")
     public ResponseEntity<VoucherDTO> updateById(@PathVariable("voucherId") long id,
                                                  @RequestBody @Valid VoucherCreationDTO newVoucher) {
-        return ResponseEntity.ok(
-                new VoucherDTO(
-                    id,
-                    newVoucher.name(),
-                    newVoucher.value(),
-                    newVoucher.expiratonDate(),
-                    newVoucher.redeemed()
-            )
-        );
+        var voucher = voucherService.updateById(id, newVoucher);
+        return voucher.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
