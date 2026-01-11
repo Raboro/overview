@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VoucherService {
@@ -36,5 +37,16 @@ public class VoucherService {
         voucher.setExpirationDate(creationDTO.expiratonDate());
         voucher.setRedeemed(creationDTO.redeemed());
         return repository.save(voucher).getId();
+    }
+
+    public Optional<VoucherDTO> getById(long id) {
+        return repository.findById(id).map(value -> new VoucherDTO(
+                        value.getId(),
+                        value.getName(),
+                        value.getValue(),
+                        value.getExpirationDate(),
+                        value.isRedeemed()
+                )
+        );
     }
 }

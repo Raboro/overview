@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -36,7 +35,8 @@ public class VoucherController {
 
     @GetMapping("{voucherId}")
     public ResponseEntity<VoucherDTO> getById(@PathVariable("voucherId") long id) {
-        return ResponseEntity.ok(new VoucherDTO(id, "test", 10.0F, LocalDate.now(), false));
+        var voucher = voucherService.getById(id);
+        return voucher.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("{voucherId}")
