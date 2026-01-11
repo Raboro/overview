@@ -31,7 +31,7 @@ public class VoucherController {
 
     @PostMapping
     public ResponseEntity<Long> create(@RequestBody @Valid VoucherCreationDTO voucher) {
-        return ResponseEntity.accepted().body(0L);
+        return ResponseEntity.accepted().body(voucherService.createOne(voucher));
     }
 
     @GetMapping("{voucherId}")

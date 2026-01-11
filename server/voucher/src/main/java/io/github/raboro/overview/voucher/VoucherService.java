@@ -28,4 +28,13 @@ public class VoucherService {
         );
         return dtos;
     }
+
+    public long createOne(VoucherCreationDTO creationDTO) {
+        Voucher voucher = new Voucher();
+        voucher.setName(creationDTO.name());
+        voucher.setValue(creationDTO.value());
+        voucher.setExpirationDate(creationDTO.expiratonDate());
+        voucher.setRedeemed(creationDTO.redeemed());
+        return repository.save(voucher).getId();
+    }
 }
