@@ -43,10 +43,10 @@ public class VoucherController {
         return ResponseEntity.ok(
                 new VoucherDTO(
                     id,
-                    newVoucher.getName(),
-                    newVoucher.getValue(),
-                    newVoucher.getExpiratonDate(),
-                    newVoucher.isRedeemed()
+                    newVoucher.name(),
+                    newVoucher.value(),
+                    newVoucher.expiratonDate(),
+                    newVoucher.redeemed()
             )
         );
     }
