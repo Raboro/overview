@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class VoucherService {
+class VoucherService {
 
     private final VoucherRepository repository;
 
-    public VoucherService(VoucherRepository repository) {
+    VoucherService(VoucherRepository repository) {
         this.repository = repository;
     }
 
-    public List<VoucherDTO> getAll() {
+    List<VoucherDTO> getAll() {
         final List<VoucherDTO> dtos = new ArrayList<>();
         repository.findAll().forEach(voucher -> dtos.add(
                         new VoucherDTO(
@@ -30,7 +30,7 @@ public class VoucherService {
         return dtos;
     }
 
-    public long createOne(VoucherCreationDTO creationDTO) {
+    long createOne(VoucherCreationDTO creationDTO) {
         Voucher voucher = new Voucher();
         voucher.setName(creationDTO.name());
         voucher.setValue(creationDTO.value());
@@ -39,7 +39,7 @@ public class VoucherService {
         return repository.save(voucher).getId();
     }
 
-    public Optional<VoucherDTO> getById(long id) {
+    Optional<VoucherDTO> getById(long id) {
         return repository.findById(id).map(voucher -> new VoucherDTO(
                         voucher.getId(),
                         voucher.getName(),
@@ -50,11 +50,11 @@ public class VoucherService {
         );
     }
 
-    public void deleteById(long id) {
+    void deleteById(long id) {
         repository.deleteById(id);
     }
 
-    public Optional<VoucherDTO> updateById(long id, VoucherCreationDTO newVoucher) {
+    Optional<VoucherDTO> updateById(long id, VoucherCreationDTO newVoucher) {
         var voucher = repository.findById(id);
         if (voucher.isEmpty()) {
             return Optional.empty();
