@@ -1,5 +1,6 @@
 package io.github.raboro.overview.voucher;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ public class VoucherController {
     }
 
     @PostMapping
-    public ResponseEntity<Long> create(@RequestBody VoucherCreationDTO voucher) {
+    public ResponseEntity<Long> create(@RequestBody @Valid VoucherCreationDTO voucher) {
         return ResponseEntity.accepted().body(0L);
     }
 
@@ -38,7 +39,7 @@ public class VoucherController {
 
     @PutMapping("{voucherId}")
     public ResponseEntity<VoucherDTO> updateById(@PathVariable("voucherId") long id,
-                                                 @RequestBody VoucherCreationDTO newVoucher) {
+                                                 @RequestBody @Valid VoucherCreationDTO newVoucher) {
         return ResponseEntity.ok(
                 new VoucherDTO(
                     id,
