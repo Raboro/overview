@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    enabled: true
+
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      format_sql: true
+      ddl-auto: create
+
+ov:
+  api:
+    base-url: /api/overview-server/v1/
