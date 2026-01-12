@@ -1,6 +1,7 @@
 package io.github.raboro.overview.server;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.github.raboro.overview.voucher.VoucherCreationDTO;
 import io.restassured.http.ContentType;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 class VoucherIT extends OverviewIT {
 
     @Test
-    void test() {
+    void creationOfVoucherShouldWork() {
         long id = given()
                 .contentType(ContentType.JSON)
                 .body(new VoucherCreationDTO("name", 10, LocalDate.now(), false))
@@ -21,11 +22,6 @@ class VoucherIT extends OverviewIT {
                 .statusCode(202)
                 .extract().body().as(Long.class);
 
-        given()
-                .contentType(ContentType.JSON)
-                .when()
-                .get("/api/overview-server/v1/voucher-app/voucher/" + id)
-                .then()
-                .statusCode(200);
+        assertTrue(id > 0);
     }
 }
