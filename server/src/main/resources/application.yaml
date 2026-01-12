@@ -1,6 +1,0 @@
-spring:
-  output:
-    ansi:
-      enabled: detect
-  application:
-    name: overview

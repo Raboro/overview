@@ -1,0 +1,20 @@
+spring:
+  output:
+    ansi:
+      enabled: detect
+
+  application:
+    name: overview
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+
+ov:
+  api:
+    base-url: /api/overview-server/v1/
+
+springdoc:
+  swagger-ui:
+    path: /swagger
