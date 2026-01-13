@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-class VoucherIT extends OverviewIT {
+public class VoucherIT extends OverviewIT {
 
     @Test
-    void creationOfVoucherShouldWork() {
+    public void creationOfVoucherShouldWork() {
         long id = given()
                 .contentType(ContentType.JSON)
                 .body(new VoucherCreationDTO("name", 10, LocalDate.now(), false))
