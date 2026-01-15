@@ -34,7 +34,7 @@ class VoucherService {
         Voucher voucher = new Voucher();
         voucher.setName(creationDTO.name());
         voucher.setValue(creationDTO.value());
-        voucher.setExpirationDate(creationDTO.expiratonDate());
+        voucher.setExpirationDate(creationDTO.expirationDate());
         voucher.setRedeemed(creationDTO.redeemed());
         return repository.save(voucher).getId();
     }
@@ -62,7 +62,7 @@ class VoucherService {
         var voucherToUpdate = voucher.get();
         voucherToUpdate.setName(newVoucher.name());
         voucherToUpdate.setValue(newVoucher.value());
-        voucherToUpdate.setExpirationDate(newVoucher.expiratonDate());
+        voucherToUpdate.setExpirationDate(newVoucher.expirationDate());
         voucherToUpdate.setRedeemed(newVoucher.redeemed());
         var updatedVoucher = repository.save(voucherToUpdate);
         return Optional.of(new VoucherDTO(
