@@ -12,7 +12,7 @@ public record VoucherCreationDTO(
         @Min(0)
         float value,
         @NotNull
-        LocalDate expirationDate
+        LocalDate expirationDate,
         boolean redeemed
 ) {
 }
