@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
-export class AppService {
+export class OvVoucherService {
   private http = inject(HttpClient);
 
   getAll() {

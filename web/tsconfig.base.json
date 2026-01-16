@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ov/ov-voucher": ["libs/ov-voucher/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
