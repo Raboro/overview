@@ -1,3 +1,29 @@
-<p>OvVoucher works!</p>
-<button (click)="getAll()">Get All</button>
+<mat-button-toggle-group
+  name="voucherOverviewStyle"
+  aria-label="Voucher overview style"
+  exclusive
+  appearance="standard"
+  [value]="viewType()"
+  (valueChange)="viewType.set($event)"
+>
+  <mat-button-toggle value="list" aria-label="List view">
+    <mat-icon>menu</mat-icon>
+  </mat-button-toggle>
+
+  <mat-button-toggle value="grid" aria-label="Grid view">
+    <mat-icon>view_comfy_alt</mat-icon>
+  </mat-button-toggle>
+</mat-button-toggle-group>
+
+<br />
+
+<button (click)="refresh()">Refresh</button>
 <button (click)="add()">Add new</button>
+
+<br />
+
+<ul>
+  @for (voucher of vouchers(); track voucher.id) {
+  <li>{{ voucher.name }}</li>
+  }
+</ul>
