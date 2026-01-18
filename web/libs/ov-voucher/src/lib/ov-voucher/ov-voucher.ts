@@ -1,6 +1,6 @@
 import { toSignal } from '@angular/core/rxjs-interop';
-import { OvVoucherService, Voucher } from './ov-voucher.service';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { OvVoucherService } from './ov-voucher.service';
+import { Component, inject, signal } from '@angular/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { startWith, Subject, switchMap } from 'rxjs';
@@ -12,7 +12,7 @@ import { startWith, Subject, switchMap } from 'rxjs';
   templateUrl: './ov-voucher.html',
   styleUrl: './ov-voucher.scss',
 })
-export class OvVoucher implements OnInit {
+export class OvVoucher {
   protected ovVoucherService = inject(OvVoucherService);
 
   protected refresh$ = new Subject<void>()
@@ -24,10 +24,6 @@ export class OvVoucher implements OnInit {
     ),
     { initialValue: [] }
   )
-
-  ngOnInit(): void {
-    this.ovVoucherService.getAll();
-  }
 
   refresh() {
     this.refresh$.next();
