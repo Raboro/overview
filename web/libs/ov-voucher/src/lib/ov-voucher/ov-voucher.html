@@ -17,15 +17,12 @@
 
 <br />
 
-<button (click)="add()">Add new</button>
+<button (click)="openAddDialog()">Add new</button>
 
 <br />
 
-@switch (viewType()) { 
-  @case ('list') {
-    <ov-voucher-list [vouchers]="vouchers()" />
-  } 
-  @case ('grid') {
-    <ov-voucher-grid [vouchers]="vouchers()" />
-  } 
-}
+@switch (viewType()) { @case ('list') {
+<ov-voucher-list [vouchers]="vouchers()" />
+} @case ('grid') {
+<ov-voucher-grid [vouchers]="vouchers()" />
+} }

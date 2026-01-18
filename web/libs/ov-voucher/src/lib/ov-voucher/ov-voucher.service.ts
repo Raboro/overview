@@ -12,20 +12,11 @@ export class OvVoucherService {
     );
   }
 
-  add() {
-    this.http
-      .post<VoucherCreation>(
-        'http://localhost:8080/api/overview-server/v1/voucher-app/voucher',
-        {
-          name: 'Test',
-          value: 10.1,
-          expirationDate: new Date(),
-          redeemed: false,
-        },
-      )
-      .subscribe((voucher) => {
-        console.log(voucher);
-      });
+  add(newVoucher: VoucherCreation) {
+    this.http.post<VoucherCreation>(
+      'http://localhost:8080/api/overview-server/v1/voucher-app/voucher',
+      newVoucher,
+    );
   }
 }
 
