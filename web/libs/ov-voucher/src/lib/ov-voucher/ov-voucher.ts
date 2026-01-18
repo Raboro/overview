@@ -30,12 +30,9 @@ export class OvVoucher {
     ),
     { initialValue: [] },
   );
-
-  refresh() {
-    this.refresh$.next();
-  }
-
+  
   add() {
     this.ovVoucherService.add();
+    this.refresh$.next();
   }
 }
