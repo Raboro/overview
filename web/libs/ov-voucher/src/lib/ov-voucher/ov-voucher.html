@@ -22,8 +22,11 @@
 
 <br />
 
-<ul>
-  @for (voucher of vouchers(); track voucher.id) {
-  <li>{{ voucher.name }}</li>
+@switch (viewType()) {
+  @case ('list') {
+    <ov-voucher-list [vouchers]="vouchers()" />
   }
-</ul>
+  @case ('grid') {
+    <ov-voucher-grid [vouchers]="vouchers()" />
+  }
+}
