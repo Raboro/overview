@@ -3,6 +3,7 @@
   aria-label="Voucher overview style"
   exclusive
   appearance="standard"
+  [hideSingleSelectionIndicator]="true"
   [value]="viewType()"
   (valueChange)="viewType.set($event)"
 >
@@ -17,7 +18,7 @@
 
 <br />
 
-<button (click)="openAddDialog()">Add new</button>
+<button mat-raised-button (click)="openAddDialog()">Add new</button>
 
 <br />
 

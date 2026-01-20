@@ -8,11 +8,13 @@ import { OvVoucherListComponent } from './ov-voucher-list.component';
 import { OvVoucherGridComponent } from './ov-voucher-grid.component';
 import { MatDialog } from '@angular/material/dialog';
 import { OvVoucherAddDialog } from './ov-voucher-add-dialog.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'ov-voucher',
   imports: [
     MatIconModule,
+    MatButtonModule,
     MatButtonToggleModule,
     OvVoucherListComponent,
     OvVoucherGridComponent,

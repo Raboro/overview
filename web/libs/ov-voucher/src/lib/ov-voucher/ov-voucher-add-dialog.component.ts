@@ -22,26 +22,68 @@ import { form, FormField, min, required } from '@angular/forms/signals';
     FormField,
   ],
   template: `
-    <h2 mat-dialog-title>Create new voucher</h2>
-    <input type="text" [formField]="form.name" />
-    <input type="number" [formField]="form.value" />
+    <div class="container">
+      <h2 mat-dialog-title>Create new voucher</h2>
 
-    <div mat-dialog-actions>
-      <button mat-button (click)="cancel()">Cancel</button>
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="onSubmit()"
-        [disabled]="form().invalid()"
-      >
-        Add
-      </button>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" [formField]="form.name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Value</mat-label>
+        <input matInput type="number" [formField]="form.value" />
+      </mat-form-field>
+
+      <div class="spacer"></div>
+
+      <div mat-dialog-actions class="actions">
+        <button mat-button class="action-btn" (click)="cancel()">
+          Cancel
+        </button>
+
+        <button
+          mat-raised-button
+          color="primary"
+          class="action-btn"
+          (click)="onSubmit()"
+          [disabled]="form().invalid()"
+        >
+          Add
+        </button>
+      </div>
     </div>
   `,
   styles: [
     `
-      .full {
+      .container {
+        min-height: 35vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 24px;
+      }
+
+      .spacer {
+        flex: 1;
+      }
+
+      .full-width {
         width: 100%;
+        max-width: 320px;
+      }
+
+      .actions {
+        display: flex;
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      .action-btn {
+        min-width: 6vw;
+        min-height: 4vh;
+        padding: 12px 24px;
+        font-size: 16px;
       }
     `,
   ],
