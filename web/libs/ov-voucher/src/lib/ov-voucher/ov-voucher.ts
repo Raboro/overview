@@ -3,7 +3,7 @@ import { OvVoucherService, VoucherCreation } from './ov-voucher.service';
 import { Component, inject, signal } from '@angular/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
-import { startWith, Subject, switchMap } from 'rxjs';
+import { startWith, Subject, switchMap, tap } from 'rxjs';
 import { OvVoucherListComponent } from './ov-voucher-list.component';
 import { OvVoucherGridComponent } from './ov-voucher-grid.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -41,13 +41,16 @@ export class OvVoucher {
       .afterClosed()
       .subscribe((newVoucher: VoucherCreation) => {
         if (newVoucher) {
+          console.log(newVoucher);
           this.add(newVoucher);
         }
       });
   }
 
   add(newVoucher: VoucherCreation) {
-    this.ovVoucherService.add(newVoucher);
-    this.refresh$.next();
+    this.ovVoucherService
+      .add(newVoucher)
+      .pipe(tap(() => this.refresh$.next()))
+      .subscribe();
   }
 }

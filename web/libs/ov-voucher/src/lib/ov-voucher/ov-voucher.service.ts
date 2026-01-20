@@ -12,10 +12,10 @@ export class OvVoucherService {
     );
   }
 
-  add(newVoucher: VoucherCreation) {
-    this.http.post<VoucherCreation>(
+  add(newVoucher: VoucherCreation): Observable<number> {
+    return this.http.post<number>(
       'http://localhost:8080/api/overview-server/v1/voucher-app/voucher',
-      newVoucher,
+      newVoucher
     );
   }
 }
