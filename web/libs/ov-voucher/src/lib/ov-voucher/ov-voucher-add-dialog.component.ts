@@ -2,7 +2,10 @@ import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatNativeDateModule } from '@angular/material/core';
+import {
+  MatNativeDateModule,
+  provideNativeDateAdapter,
+} from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
@@ -12,6 +15,7 @@ import { form, FormField, min, required } from '@angular/forms/signals';
 @Component({
   standalone: true,
   selector: 'app-my-dialog',
+  providers: [provideNativeDateAdapter()],
   imports: [
     ReactiveFormsModule,
     MatButtonModule,
@@ -19,6 +23,8 @@ import { form, FormField, min, required } from '@angular/forms/signals';
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
     FormField,
   ],
   template: `
@@ -35,12 +41,26 @@ import { form, FormField, min, required } from '@angular/forms/signals';
         <input matInput type="number" [formField]="form.value" />
       </mat-form-field>
 
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Expiration date</mat-label>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          [formField]="form.expirationDate"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-checkbox [formField]="form.redeemed">
+        <p>Redeemed</p>
+      </mat-checkbox>
+
       <div class="spacer"></div>
 
       <div mat-dialog-actions class="actions">
-        <button mat-button class="action-btn" (click)="cancel()">
-          Cancel
-        </button>
+        <button mat-button class="action-btn" (click)="cancel()">Cancel</button>
 
         <button
           mat-raised-button
