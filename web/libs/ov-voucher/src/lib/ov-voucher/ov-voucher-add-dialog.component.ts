@@ -1,7 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import {
   MatNativeDateModule,
   provideNativeDateAdapter,
@@ -11,6 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { VoucherCreation } from './ov-voucher.service';
 import { form, FormField, min, required } from '@angular/forms/signals';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   standalone: true,
@@ -20,10 +20,9 @@ import { form, FormField, min, required } from '@angular/forms/signals';
     ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
-    MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCheckboxModule,
+    MatSlideToggleModule,
     MatDatepickerModule,
     FormField,
   ],
@@ -53,9 +52,9 @@ import { form, FormField, min, required } from '@angular/forms/signals';
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-      <mat-checkbox [formField]="form.redeemed">
+      <mat-slide-toggle [formField]="form.redeemed">
         <p>Redeemed</p>
-      </mat-checkbox>
+      </mat-slide-toggle>
 
       <div class="spacer"></div>
 
