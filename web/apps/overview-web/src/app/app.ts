@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcome } from './nx-welcome';
+import { OvVoucher } from '@ov/ov-voucher';
 
 @Component({
-  imports: [NxWelcome, RouterModule],
+  imports: [OvVoucher, RouterModule],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
