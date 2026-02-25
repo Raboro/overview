@@ -33,7 +33,7 @@ import { MatChipsModule } from "@angular/material/chips";
       display: flex;
       flex-direction: column;
       gap: 2vh;
-      height: 70vh;
+      height: 89vh;
       overflow-y: auto;
       padding-top: 2vh;
     }

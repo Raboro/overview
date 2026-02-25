@@ -1,3 +1,32 @@
+@if (!selectedApp()) {
 <h1>Overview</h1>
-<ov-voucher></ov-voucher>
+<div class="home">
+  <div class="grid">
+    @for (app of apps; track app) {
+    <div class="app-tile" (click)="openApp(app)">{{ app }}</div>
+    }
+  </div>
+</div>
+} @else {
+<div class="layout">
+  <div class="sidebar">
+    @for (app of apps; track app) {
+    <div
+      class="nav-item"
+      (click)="openApp(app)"
+      [class.active]="app === selectedApp()"
+    >
+      {{ app }}
+    </div>
+    }
+    <div class="nav-item home" (click)="goHome()">Home</div>
+  </div>
+
+  <div class="content">
+    @switch (selectedApp()) { @case ('Voucher') {
+    <ov-voucher></ov-voucher>
+    } @default { } }
+  </div>
+</div>
+}
 <router-outlet></router-outlet>

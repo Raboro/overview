@@ -24,7 +24,7 @@ import { MatChipsModule } from "@angular/material/chips";
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 0.75rem;
 
-      height: 70vh;
+      height: 89vh;
       overflow-y: auto;
 
       align-items: start;

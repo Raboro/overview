@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { OvVoucher } from '@ov/ov-voucher';
 
@@ -9,5 +9,14 @@ import { OvVoucher } from '@ov/ov-voucher';
   styleUrl: './app.scss',
 })
 export class App {
-  protected title = 'overview-web';
+  apps = ['Voucher'];
+  selectedApp = signal<string | null>(null);
+
+  openApp(app: string) {
+    this.selectedApp.set(app);
+  }
+
+  goHome() {
+    this.selectedApp.set(null);
+  }
 }

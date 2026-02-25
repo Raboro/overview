@@ -1,0 +1,67 @@
+.home {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  width: 60%;
+}
+
+.app-tile {
+  border: 2px solid #333;
+  padding: 3rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 12px;
+  background: white;
+  transition: 0.2s;
+}
+
+.app-tile:hover {
+  background: #eaeaea;
+}
+
+.layout {
+  display: flex;
+  height: 98vh;
+}
+
+.sidebar {
+  width: 10vwpx;
+  background: #1e1e1e;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item {
+  padding: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-item.active {
+  background: #555;
+}
+
+.nav-item.home {
+  font-weight: bold;
+  background: #333;
+  border-bottom: 1px solid #444;
+}
+
+.nav-item:hover {
+  background: #575757;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  background: #fafafa;
+}
