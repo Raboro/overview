@@ -1,5 +1,6 @@
 import { Component, input } from "@angular/core";
 import { Voucher } from "./ov-voucher.service";
+import { MatChipsModule } from "@angular/material/chips";
 
 @Component({
   selector: 'ov-voucher-grid',
@@ -7,8 +8,12 @@ import { Voucher } from "./ov-voucher.service";
   template: `
     <div class="grid">
       @for (voucher of vouchers(); track voucher.id) {
-        <div class="card">
-          {{ voucher.name }}
+        <div class="voucher-card">
+          <b>{{ voucher.name }}</b>
+          <div class="voucher-card-content">
+            <mat-chip>{{ voucher.expirationDate }}</mat-chip>
+            <mat-chip>{{ voucher.value }}€</mat-chip>
+          </div>
         </div>
       }
     </div>
@@ -17,14 +22,30 @@ import { Voucher } from "./ov-voucher.service";
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
+      gap: 0.75rem;
+
+      height: 70vh;
+      overflow-y: auto;
+
+      align-items: start;
+      align-content: start;
+      margin-top: 2vh;
     }
-    .card {
-      padding: 16px;
+
+    .voucher-card {
+      padding: 1rem;
       border: 1px solid #ddd;
-      border-radius: 8px;
+      border-radius: 15px;
     }
-  `]
+
+    .voucher-card-content {
+      display: flex;
+      flex-direction: row;
+      gap: 0.4vw;
+      padding-top: 1vh;
+    }
+  `],
+  imports: [MatChipsModule]
 })
 export class OvVoucherGridComponent {
   vouchers = input.required<Voucher[]>();

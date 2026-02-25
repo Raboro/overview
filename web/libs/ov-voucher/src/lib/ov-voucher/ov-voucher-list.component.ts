@@ -35,10 +35,13 @@ import { MatChipsModule } from "@angular/material/chips";
       gap: 2vh;
       height: 70vh;
       overflow-y: auto;
+      padding-top: 2vh;
     }
 
     .voucher-card {
       max-height: 15vh;
+      margin: 0.1vh 10vw;
+      border-radius: 15px;
     }
     `
   ]
