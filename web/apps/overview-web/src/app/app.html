@@ -3,7 +3,9 @@
 <div class="home">
   <div class="grid">
     @for (app of apps; track app) {
-    <div class="app-tile" (click)="openApp(app)">{{ app }}</div>
+    <div class="app-tile" (click)="openApp(app.name)">
+      <mat-icon>{{ app.iconName }}</mat-icon><br /><b>{{ app.name }}</b>
+    </div>
     }
   </div>
 </div>
@@ -13,13 +15,15 @@
     @for (app of apps; track app) {
     <div
       class="nav-item"
-      (click)="openApp(app)"
-      [class.active]="app === selectedApp()"
+      (click)="openApp(app.name)"
+      [class.active]="app.name === selectedApp()"
     >
-      {{ app }}
+      <mat-icon>{{ app.iconName }}</mat-icon>
     </div>
     }
-    <div class="nav-item home" (click)="goHome()">Home</div>
+    <div class="nav-item home" (click)="goHome()">
+      <mat-icon>home</mat-icon>
+    </div>
   </div>
 
   <div class="content">

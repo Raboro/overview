@@ -18,7 +18,7 @@
   padding: 3rem 1rem;
   text-align: center;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 15px;
   background: white;
   transition: 0.2s;
 }
@@ -33,27 +33,22 @@
 }
 
 .sidebar {
-  width: 10vwpx;
-  background: #1e1e1e;
+  width: 3vw;
   color: white;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .nav-item {
   padding: 1rem;
   cursor: pointer;
   transition: 0.2s;
+  background: #333;
 }
 
 .nav-item.active {
   background: #555;
-}
-
-.nav-item.home {
-  font-weight: bold;
-  background: #333;
-  border-bottom: 1px solid #444;
 }
 
 .nav-item:hover {
