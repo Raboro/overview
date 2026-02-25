@@ -5,8 +5,10 @@ import { OvVoucher } from '@ov/ov-voucher';
 @Component({
   selector: 'app-nx-welcome',
   imports: [CommonModule, OvVoucher],
-  template: `<h1>Welcome overview-web 👋</h1>
-    <ov-voucher></ov-voucher>`,
+  template: `
+    <h1>Overview</h1>
+    <ov-voucher></ov-voucher>
+  `,
   styles: [],
   encapsulation: ViewEncapsulation.None,
 })
